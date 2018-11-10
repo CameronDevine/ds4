@@ -1,0 +1,11 @@
+#!/bin/bash
+
+stop()
+{
+	pkexec kill -SIGINT $ds4pid
+}
+
+trap 'stop' TERM INT
+pkexec ds4drv --hidraw &
+ds4pid=$!
+wait $ds4pid

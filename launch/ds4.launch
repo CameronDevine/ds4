@@ -1,0 +1,8 @@
+<launch>
+	<node pkg="ds4" name="ds4drv" type="ds4" output="screen" />
+	<node pkg="joy" name="joy_node" type="joy_node">
+		<param name="deadzone" value="0" />
+		<param name="dev" value="/dev/input/js1" />
+	</node>
+	<node pkg="ds4" name="imu" type="ds4imu.py" />
+</launch>
